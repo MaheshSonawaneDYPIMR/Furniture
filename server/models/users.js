@@ -75,6 +75,8 @@ userSchema.methods.comparePassword = async function (password){
    return await bcrypt.compare(password,this.password);
 }
 
+userSchema.index({otp_expiry:1},{expireAfterSeconds:0})
+
 
 
 // Create a model from the schema

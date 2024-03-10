@@ -93,3 +93,16 @@ export const login = async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 };
+
+export const logout = async(req, res) =>{
+  try {
+    res.status(200).cookie("token",null,{
+      expires: new Date(Date.now())
+    }).json({success: true ,message: "logout success"});
+
+    
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+
+  }
+}
