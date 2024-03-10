@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema(
          createdAt:Date
     },
     otp:Number,
-    otp_Entry:Date,
+    otp_expiry:Date,
     verified:{
       type:Boolean,
       default:false
@@ -69,6 +69,10 @@ userSchema.methods.getJWTToken = function () {
   return jwt.sign({_id:this._id},process.env.JWT_SECRET,{
     expiresIn:100,
   })
+}
+
+userSchema.methods.comparePassword = async function (password){
+   return await bcrypt.compare(password,this.password);
 }
 
 
