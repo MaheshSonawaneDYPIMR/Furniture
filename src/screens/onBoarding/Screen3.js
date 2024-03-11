@@ -9,9 +9,10 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import Button from "../../components/Button";
 
 const Screen1 = () => {
-const navigation = useNavigation();
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -27,7 +28,6 @@ const navigation = useNavigation();
           position: "absolute",
           top: moderateScale(90),
           left: moderateScale(25),
-          
         }}
       >
         <Text
@@ -44,13 +44,13 @@ const navigation = useNavigation();
             fontSize: 14,
             fontWeight: "400",
             color: "#F9FAFB",
-            marginTop:moderateScale(20)
+            marginTop: moderateScale(20),
           }}
         >
           Shopee adds new designs every day. Explore and find {"\n"} the best
           furniture for ypur home and offices.
         </Text>
-        <View style={{ flexDirection: "row" ,marginTop:moderateScale(15)}}>
+        <View style={{ flexDirection: "row", marginTop: moderateScale(15) }}>
           <View
             style={{
               height: moderateScale(12),
@@ -73,7 +73,7 @@ const navigation = useNavigation();
             style={{
               height: moderateScale(12),
               width: moderateScale(12),
-              
+
               backgroundColor: "yellow",
               borderRadius: moderateScale(6),
             }}
@@ -104,29 +104,18 @@ const navigation = useNavigation();
         start={{ x: 0, y: 0 }}
         end={{ x: 0, y: 1 }}
       />
-
-      <Pressable
-        onPress={
-            () => {
-              navigation.navigate("MainStackNav");
+      <Button
+        onPress={() => {
+          navigation.navigate("MainStackNav");
         }}
+        label={"Get Started"}
         style={{
           position: "absolute",
-          bottom: moderateScale(60),
-          height: moderateScale(55),
-          width: moderateScale(300),
-         borderRadius:moderateScale(17),
-          justifyContent: "center",
-          alignItems: "center",
-          shadowColor: "#000",
-
           left: "center",
           right: "center",
-          backgroundColor: "yellow",
+          bottom: moderateScale(60),
         }}
-      >
-        <Text style={{fontSize:20,fontWeight:'600'}}>Get Started</Text>
-      </Pressable>
+      />
     </View>
   );
 };
